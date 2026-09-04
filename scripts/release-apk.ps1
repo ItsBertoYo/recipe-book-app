@@ -76,11 +76,9 @@ if (-not $SkipCommit) {
 
 $tag = "v$VersionName"
 $releaseExists = $false
-try {
-    gh release view $tag --repo $Repo *> $null
+gh release view $tag --repo $Repo *> $null
+if ($LASTEXITCODE -eq 0) {
     $releaseExists = $true
-} catch {
-    $releaseExists = $false
 }
 
 if ($releaseExists) {
@@ -91,11 +89,9 @@ if ($releaseExists) {
 
 if ($UpdateRepo) {
     $updateReleaseExists = $false
-    try {
-        gh release view $tag --repo $UpdateRepo *> $null
+    gh release view $tag --repo $UpdateRepo *> $null
+    if ($LASTEXITCODE -eq 0) {
         $updateReleaseExists = $true
-    } catch {
-        $updateReleaseExists = $false
     }
 
     if ($updateReleaseExists) {
