@@ -57,7 +57,7 @@ if (-not (Test-Path -LiteralPath $keystore)) {
     & $keytool -genkeypair -v -keystore $keystore -storepass android -alias recipebook -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname 'CN=Berto Recipe Book, OU=Personal, O=Berto, L=Local, S=IL, C=US'
 }
 
-$outputApk = Join-Path $project 'dist\Recipe Book.apk'
+$outputApk = Join-Path $project 'dist\Recipe.Book.apk'
 & "$($buildToolsDir.FullName)\apksigner.bat" sign --ks $keystore --ks-pass pass:android --key-pass pass:android --out $outputApk "$build\RecipeBook-unsigned-aligned.apk"
 if ($LASTEXITCODE -ne 0) { throw 'APK signing failed.' }
 & "$($buildToolsDir.FullName)\apksigner.bat" verify --verbose --print-certs $outputApk

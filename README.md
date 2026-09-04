@@ -6,7 +6,7 @@ A phone-friendly clickable recipe book packaged as a small Android app.
 
 Download the latest APK from GitHub Releases:
 
-- `Recipe Book.apk`
+- `Recipe.Book.apk`
 
 Open it on your Android phone or tablet. Android may ask you to allow installing apps from your browser, Google Drive, or file manager.
 
@@ -38,7 +38,7 @@ From this folder on the desktop:
 
 The rebuilt APK will be saved to:
 
-- `dist/Recipe Book.apk`
+- `dist/Recipe.Book.apk`
 
 ## Notes
 
