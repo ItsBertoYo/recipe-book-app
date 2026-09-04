@@ -15,10 +15,15 @@ Open it on your Android phone or tablet. Android may ask you to allow installing
 For automatic update checks on Android, use Obtainium:
 
 1. Install Obtainium from <https://obtainium.imranr.dev>.
-2. Add this GitHub repository as an app source.
-3. Choose the latest release APK when prompted.
+2. Add the public update-only repository as an app source:
+
+   `https://github.com/ItsBertoYo/recipe-book-app-updates`
+
+3. Use GitHub as the source and `Recipe.Book\.apk` as the APK filter if Obtainium asks.
 
 After that, each new GitHub Release can be installed as an app update.
+
+The source repository stays private. The public update-only repository contains APK release files only.
 
 ## Cookbook File
 
@@ -39,6 +44,12 @@ From this folder on the desktop:
 The rebuilt APK will be saved to:
 
 - `dist/Recipe.Book.apk`
+
+To build, commit, push, and publish a new Obtainium update release:
+
+```powershell
+.\scripts\release-apk.ps1
+```
 
 ## Notes
 
