@@ -2,6 +2,14 @@
 
 A phone-friendly clickable recipe book packaged as a small Android app.
 
+## Open In A Browser
+
+The browser/iPhone version lives at:
+
+- `docs/index.html`
+
+GitHub Pages can publish that file as a normal website link for family members on iPhone, iPad, Android, or desktop.
+
 ## Install on Android
 
 Download the latest APK from GitHub Releases:
@@ -30,6 +38,7 @@ The source repository stays private. The public update-only repository contains 
 The cookbook HTML lives at:
 
 - `cookbook/Recipe Book.html`
+- `docs/index.html`
 
 The Android app bundles that file inside the APK so it can open offline.
 
