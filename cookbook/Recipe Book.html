@@ -287,6 +287,181 @@ a { color: inherit; text-decoration: none; }
   font-size: 14px;
 }
 code { background: #f4eadc; padding: 2px 6px; border-radius: 7px; }
+
+/* Recipe Book App responsive override */
+@media screen {
+  .phone-page {
+    width: min(1080px, 100%);
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1180px) {
+  .phone-page {
+    width: 100%;
+    min-height: 100dvh;
+    margin: 0 auto 18px;
+    padding: 58px 46px 70px;
+  }
+  .phone-page:before {
+    inset: 24px;
+    border-radius: 34px;
+  }
+  .cover h1 { font-size: 86px; }
+  .cover p { font-size: 27px; }
+  .page-title h2 { font-size: 50px; }
+  .recipe-body { font-size: 22px; }
+  .recipe-page.extra-long .recipe-body {
+    font-size: 19px;
+    column-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    background: #fff7f1;
+    overflow-x: hidden;
+  }
+  .phone-page {
+    width: 100%;
+    min-height: 100dvh;
+    margin: 0 0 12px;
+    padding: 32px 18px 44px;
+    overflow: hidden;
+  }
+  .phone-page:before {
+    inset: 10px;
+    border-radius: 24px;
+    border-width: 1px;
+  }
+  .cover {
+    justify-content: flex-start;
+    padding-top: 76px;
+  }
+  .cover h1 {
+    font-size: clamp(42px, 14vw, 64px);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .cover p {
+    font-size: 17px;
+    line-height: 1.42;
+    margin-bottom: 28px;
+    max-width: 100%;
+  }
+  .button-grid { gap: 12px; }
+  .big-button {
+    padding: 16px 18px;
+    font-size: 18px;
+  }
+  .page-title {
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+  }
+  .page-title h2 {
+    font-size: clamp(30px, 9vw, 42px);
+    line-height: 1.06;
+    margin-bottom: 10px;
+  }
+  .pill,
+  .index-title-row .pill,
+  .index-title-row .mini-nav-button,
+  .index-sub-actions .mini-nav-button,
+  .recipe-title-actions .pill,
+  .recipe-title-actions .mini-nav-button {
+    font-size: 12px;
+    min-height: 28px;
+    padding: 5px 10px;
+  }
+  .recipe-title-actions,
+  .index-title-row {
+    gap: 7px;
+  }
+  .recipe-nav,
+  .recipe-page .recipe-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 0 14px;
+  }
+  .nav-button {
+    min-height: 42px;
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+  .category-grid,
+  .recipe-list,
+  .index-page .recipe-list,
+  .category-page .recipe-list {
+    gap: 10px;
+  }
+  .cat-card,
+  .recipe-link,
+  .index-page .recipe-link,
+  .category-page .recipe-link {
+    border-radius: 18px;
+    padding: 13px 15px;
+  }
+  .cat-card strong,
+  .recipe-link strong,
+  .index-page .recipe-link strong,
+  .category-page .recipe-link strong {
+    font-size: 17px;
+    line-height: 1.16;
+  }
+  .cat-card span,
+  .recipe-link span,
+  .index-page .recipe-link span,
+  .category-page .recipe-link span {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+  .recipe-body,
+  .recipe-page.long .recipe-body,
+  .recipe-page.extra-long .recipe-body {
+    display: block;
+    font-size: 15px;
+    line-height: 1.36;
+    column-count: 1;
+  }
+  .recipe-card {
+    margin-bottom: 12px;
+    padding: 14px 15px;
+    border-radius: 18px;
+    border-width: 1px;
+  }
+  .recipe-card h3,
+  .recipe-page.long .recipe-card h3,
+  .recipe-page.extra-long .recipe-card h3 {
+    font-size: 20px;
+    line-height: 1.1;
+    margin-bottom: 9px;
+    padding-bottom: 7px;
+  }
+  .item {
+    padding-left: 20px;
+    margin: 5px 0;
+  }
+  .item:before {
+    width: 7px;
+    height: 7px;
+    top: .62em;
+  }
+  .step,
+  .recipe-page.extra-long .step {
+    grid-template-columns: 28px 1fr;
+    gap: 8px;
+    margin: 7px 0;
+  }
+  .step span,
+  .recipe-page.extra-long .step span {
+    width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+  .step p,
+  .recipe-card p {
+    margin-bottom: 6px;
+  }
+}
 </style></head><body>
 <section class="phone-page cover" id="top" data-document-role="page" data-label="Cover"><h1>Recipe Book</h1><p>A warm, phone-friendly cookbook for family recipes, weeknight saves, sweet things, and new favorites.</p><div class="button-grid"><a class="big-button" href="#categories">Browse Categories</a><a class="big-button" href="#contents">Recipe Index</a></div></section>
 <section class="phone-page" id="categories" data-document-role="page" data-label="Categories"><div class="page-title"><h2>Categories</h2><span class="pill">Tap a section</span></div><div class="category-grid">
