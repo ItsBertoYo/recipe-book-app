@@ -3,3 +3,4 @@ build/
 *.idsig
 .DS_Store
 Thumbs.db
+.wrangler/

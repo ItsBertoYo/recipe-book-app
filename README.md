@@ -10,6 +10,10 @@ The browser/iPhone version lives at:
 
 GitHub Pages can publish that file as a normal website link for family members on iPhone, iPad, Android, or desktop.
 
+Cloudflare Pages is live at:
+
+- <https://recipe-book-app.pages.dev/>
+
 ## Install on Android
 
 Download the latest APK from GitHub Releases:
