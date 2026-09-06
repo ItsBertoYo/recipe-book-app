@@ -17,15 +17,16 @@ body {
   background: #f7ece6;
   color: var(--ink);
   font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
 .phone-page {
-  width: 1080px;
-  min-height: 1920px;
+  width: min(1080px, calc(100vw - 32px));
+  min-height: min(1920px, 100dvh);
   position: relative;
   overflow: visible;
-  margin: 0 auto 24px;
-  padding: 74px 68px 86px;
+  margin: 16px auto 24px;
+  padding: clamp(32px, 5vw, 74px) clamp(22px, 5vw, 68px) clamp(44px, 6vw, 86px);
   background:
     radial-gradient(circle at 12% 8%, rgba(255,199,218,.42), transparent 22%),
     radial-gradient(circle at 88% 12%, rgba(255,215,199,.58), transparent 25%),
@@ -34,9 +35,9 @@ a { color: inherit; text-decoration: none; }
 .phone-page:before {
   content: "";
   position: absolute;
-  inset: 34px;
+  inset: clamp(10px, 2.3vw, 34px);
   border: 2px solid rgba(239,199,187,.72);
-  border-radius: 42px;
+  border-radius: clamp(24px, 3vw, 42px);
   pointer-events: none;
 }
 .cover {
@@ -47,12 +48,12 @@ a { color: inherit; text-decoration: none; }
 }
 .cover h1 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 112px;
+  font-size: clamp(50px, 10vw, 112px);
   line-height: .95;
   margin: 0 0 24px;
 }
 .cover p {
-  font-size: 33px;
+  font-size: clamp(18px, 3vw, 33px);
   line-height: 1.35;
   color: var(--muted);
   margin: 0 auto 56px;
@@ -76,8 +77,8 @@ a { color: inherit; text-decoration: none; }
 }
 .big-button {
   display: block;
-  padding: 28px 34px;
-  font-size: 32px;
+  padding: clamp(16px, 2.6vw, 28px) clamp(18px, 3vw, 34px);
+  font-size: clamp(18px, 2.8vw, 32px);
   font-weight: 800;
 }
 .page-title {
@@ -87,7 +88,7 @@ a { color: inherit; text-decoration: none; }
 }
 .page-title h2 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 58px;
+  font-size: clamp(34px, 5.2vw, 58px);
   line-height: 1;
   margin: 0 0 14px;
 }
@@ -162,12 +163,12 @@ a { color: inherit; text-decoration: none; }
   margin: 0 0 22px;
 }
 .nav-button {
-  min-height: 62px;
+  min-height: clamp(42px, 5.5vw, 62px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 16px;
-  font-size: 23px;
+  font-size: clamp(14px, 2.1vw, 23px);
   font-weight: 800;
 }
 .nav-button.primary { background: linear-gradient(135deg, #ffc7da, #ffd7c7); }
@@ -187,11 +188,11 @@ a { color: inherit; text-decoration: none; }
 }
 .index-page .recipe-link strong,
 .category-page .recipe-link strong {
-  font-size: 25px;
+  font-size: clamp(17px, 2.4vw, 25px);
 }
 .index-page .recipe-link span,
 .category-page .recipe-link span {
-  font-size: 18px;
+  font-size: clamp(13px, 1.8vw, 18px);
 }
 .cat-card,
 .recipe-link {
@@ -213,11 +214,11 @@ a { color: inherit; text-decoration: none; }
 }
 .recipe-body {
   display: block;
-  font-size: 24px;
+  font-size: clamp(15px, 2.2vw, 24px);
   line-height: 1.32;
 }
-.recipe-page.long .recipe-body { font-size: 21px; line-height: 1.25; }
-.recipe-page.extra-long .recipe-body { font-size: 18px; line-height: 1.18; column-count: 2; column-gap: 24px; }
+.recipe-page.long .recipe-body { font-size: clamp(14px, 1.95vw, 21px); line-height: 1.25; }
+.recipe-page.extra-long .recipe-body { font-size: clamp(13px, 1.7vw, 18px); line-height: 1.18; column-count: 2; column-gap: 24px; }
 .recipe-card {
   break-inside: avoid;
   margin: 0 0 18px;
@@ -231,7 +232,7 @@ a { color: inherit; text-decoration: none; }
 .notes-card { background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,228,238,.84)); }
 .recipe-card h3 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 34px;
+  font-size: clamp(20px, 3vw, 34px);
   line-height: 1.05;
   margin: 0 0 14px;
   padding-bottom: 10px;
@@ -291,7 +292,132 @@ code { background: #f4eadc; padding: 2px 6px; border-radius: 7px; }
 /* Recipe Book App responsive override */
 @media screen {
   .phone-page {
-    width: min(1080px, 100%);
+    width: min(1080px, calc(100vw - 32px));
+  }
+}
+
+@media screen and (min-width: 1181px) and (orientation: landscape) {
+  body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+    padding: 18px;
+    background: #f7ece6;
+  }
+  .phone-page {
+    width: 100%;
+    min-height: calc(100dvh - 36px);
+    margin: 0;
+    padding: 40px 34px 46px;
+  }
+  .phone-page:before {
+    inset: 18px;
+    border-radius: 30px;
+  }
+  .cover {
+    justify-content: center;
+  }
+  .cover h1 {
+    font-size: clamp(58px, 6vw, 88px);
+  }
+  .cover p {
+    font-size: clamp(18px, 1.9vw, 24px);
+  }
+  .page-title {
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+  .page-title h2 {
+    font-size: clamp(34px, 4vw, 48px);
+  }
+  .pill,
+  .index-title-row .pill,
+  .index-title-row .mini-nav-button,
+  .index-sub-actions .mini-nav-button,
+  .recipe-title-actions .pill,
+  .recipe-title-actions .mini-nav-button {
+    font-size: 14px;
+    min-height: 30px;
+    padding: 5px 11px;
+  }
+  .recipe-nav,
+  .recipe-page .recipe-nav {
+    gap: 10px;
+    margin: 0 0 16px;
+  }
+  .nav-button {
+    min-height: 44px;
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .recipe-list,
+  .index-page .recipe-list,
+  .category-page .recipe-list {
+    gap: 9px;
+  }
+  .cat-card,
+  .recipe-link,
+  .index-page .recipe-link,
+  .category-page .recipe-link {
+    border-radius: 18px;
+    padding: 12px 15px;
+  }
+  .cat-card strong,
+  .recipe-link strong,
+  .index-page .recipe-link strong,
+  .category-page .recipe-link strong {
+    font-size: 18px;
+    line-height: 1.12;
+  }
+  .cat-card span,
+  .recipe-link span,
+  .index-page .recipe-link span,
+  .category-page .recipe-link span {
+    font-size: 13px;
+  }
+  .recipe-body,
+  .recipe-page.long .recipe-body {
+    font-size: 15px;
+    line-height: 1.28;
+  }
+  .recipe-page.extra-long .recipe-body {
+    font-size: 13px;
+    line-height: 1.18;
+    column-count: 2;
+    column-gap: 14px;
+  }
+  .recipe-card {
+    padding: 14px 15px;
+    margin-bottom: 11px;
+    border-radius: 18px;
+  }
+  .recipe-card h3,
+  .recipe-page.long .recipe-card h3,
+  .recipe-page.extra-long .recipe-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    padding-bottom: 7px;
+  }
+  .item {
+    padding-left: 20px;
+    margin: 4px 0;
+  }
+  .step,
+  .recipe-page.extra-long .step {
+    grid-template-columns: 26px 1fr;
+    gap: 7px;
+    margin: 5px 0;
+  }
+  .step span,
+  .recipe-page.extra-long .step span {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
   }
 }
 
@@ -322,7 +448,8 @@ code { background: #f4eadc; padding: 2px 6px; border-radius: 7px; }
     overflow-x: hidden;
   }
   .phone-page {
-    width: 100%;
+    width: min(100%, 100vw);
+    max-width: 100vw;
     min-height: 100dvh;
     margin: 0 0 12px;
     padding: 32px 18px 44px;
@@ -375,17 +502,22 @@ code { background: #f4eadc; padding: 2px 6px; border-radius: 7px; }
   .recipe-title-actions,
   .index-title-row {
     gap: 7px;
+    min-width: 0;
   }
   .recipe-nav,
   .recipe-page .recipe-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     margin: 0 0 14px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
   .nav-button {
     min-height: 42px;
     padding: 9px 10px;
     font-size: 14px;
+    min-width: 0;
   }
   .category-grid,
   .recipe-list,
@@ -399,6 +531,8 @@ code { background: #f4eadc; padding: 2px 6px; border-radius: 7px; }
   .category-page .recipe-link {
     border-radius: 18px;
     padding: 13px 15px;
+    min-width: 0;
+    overflow: hidden;
   }
   .cat-card strong,
   .recipe-link strong,
@@ -406,6 +540,7 @@ code { background: #f4eadc; padding: 2px 6px; border-radius: 7px; }
   .category-page .recipe-link strong {
     font-size: 17px;
     line-height: 1.16;
+    overflow-wrap: anywhere;
   }
   .cat-card span,
   .recipe-link span,
@@ -4709,4 +4844,3 @@ code { background: #f4eadc; padding: 2px 6px; border-radius: 7px; }
 </div>
 </div></section>
 </body></html>
-
